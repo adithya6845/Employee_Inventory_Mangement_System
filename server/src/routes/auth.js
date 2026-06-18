@@ -6,6 +6,93 @@ import { authenticate } from '../middleware/auth.js';
 
 const router = express.Router();
 
+router.get('/departments', async (req, res) => {
+  try {
+    const departments = await prisma.department.findMany({
+      select: { id: true, name: true, code: true }
+    });
+    res.json(departments);
+  } catch (error) {
+    res.status(500).json({ message: 'Server error fetching departments' });
+  }
+});
+
+router.post('/register', async (req, res) => {
+  const { email, password, firstName, lastName, role, departmentId } = req.body;
+
+  if (!email || !password || !firstName || !lastName) {
+    return res.status(400).json({ message: 'Missing required fields' });
+  }
+
+  try {
+    const existingUser = await prisma.user.findUnique({ where: { email } });
+    if (existingUser) {
+      return res.status(400).json({ message: 'Email already registered' });
+    }
+
+    let targetDeptId = departmentId;
+    if (!targetDeptId) {
+      const defaultDept = await prisma.department.findFirst();
+      if (!defaultDept) {
+        const newDept = await prisma.department.create({
+          data: { name: 'General', code: 'GEN' }
+        });
+        targetDeptId = newDept.id;
+      } else {
+        targetDeptId = defaultDept.id;
+      }
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const randomSuffix = Math.floor(100 + Math.random() * 900) + Date.now().toString().slice(-4);
+    const empId = `EMP${randomSuffix}`;
+
+    const newUser = await prisma.$transaction(async (tx) => {
+      const user = await tx.user.create({
+        data: {
+          email,
+          password: hashedPassword,
+          role: role || 'user',
+        }
+      });
+
+      await tx.employee.create({
+        data: {
+          employeeId: empId,
+          firstName,
+          lastName,
+          email,
+          role: role || 'user',
+          departmentId: targetDeptId,
+          userId: user.id
+        }
+      });
+
+      return user;
+    });
+
+    const token = jwt.sign(
+      { id: newUser.id, email: newUser.email, role: newUser.role },
+      process.env.JWT_SECRET,
+      { expiresIn: '8h' }
+    );
+
+    res.status(201).json({
+      token,
+      user: {
+        id: newUser.id,
+        email: newUser.email,
+        role: newUser.role,
+        firstName,
+        lastName
+      }
+    });
+  } catch (error) {
+    console.error('Registration error:', error);
+    res.status(500).json({ message: 'Server error during registration', error: error.message });
+  }
+});
+
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 

@@ -1,13 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Mail, Lock } from 'lucide-react';
+import { ShieldCheck, Mail, Lock, User, Briefcase } from 'lucide-react';
+
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
 
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isSignUp, setIsSignUp] = useState(false);
   
+  // Sign Up States
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [role, setRole] = useState('user');
+  const [departmentId, setDepartmentId] = useState('');
+  const [departments, setDepartments] = useState([]);
+
+  useEffect(() => {
+    const fetchDepartments = async () => {
+      try {
+        const response = await fetch(`${API_URL}/auth/departments`);
+        if (response.ok) {
+          const data = await response.json();
+          setDepartments(data);
+          if (data.length > 0) {
+            setDepartmentId(data[0].id);
+          }
+        }
+      } catch (err) {
+        console.error('Error fetching departments:', err);
+      }
+    };
+    fetchDepartments();
+  }, []);
+
   // Google Single Sign-On States
   const [isGoogleModalOpen, setIsGoogleModalOpen] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
@@ -16,8 +44,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      // Use the actual backend API for login
-      const response = await fetch('http://localhost:3000/api/auth/login', {
+      const response = await fetch(`${API_URL}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
@@ -28,12 +55,9 @@ const Login = () => {
       }
 
       const data = await response.json();
-      
-      // Store the real JWT token and user info
       localStorage.setItem('token', data.token);
       localStorage.setItem('user', JSON.stringify(data.user));
       
-      // Role-based routing
       if (data.user.role === 'developer') navigate('/developer');
       else if (data.user.role === 'support') navigate('/support');
       else if (data.user.role === 'security') navigate('/security');
@@ -45,11 +69,39 @@ const Login = () => {
     }
   };
 
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(`${API_URL}/auth/register`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password, firstName, lastName, role, departmentId })
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Registration failed');
+      }
+
+      const data = await response.json();
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('user', JSON.stringify(data.user));
+
+      if (data.user.role === 'developer') navigate('/developer');
+      else if (data.user.role === 'support') navigate('/support');
+      else if (data.user.role === 'security') navigate('/security');
+      else if (data.user.role === 'leave') navigate('/leave');
+      else navigate('/admin');
+    } catch (error) {
+      alert(`Sign Up failed: ${error.message}`);
+    }
+  };
+
   const handleGoogleAccountSelect = async (selectedEmail) => {
     setSelectedGoogleEmail(selectedEmail);
     setGoogleLoading(true);
     try {
-      const response = await fetch('http://localhost:3000/api/auth/google-login', {
+      const response = await fetch(`${API_URL}/auth/google-login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: selectedEmail })
@@ -60,12 +112,9 @@ const Login = () => {
       }
 
       const data = await response.json();
-      
-      // Store token and user details in localStorage
       localStorage.setItem('token', data.token);
       localStorage.setItem('user', JSON.stringify(data.user));
       
-      // Simulate real, secure enterprise token authentication check
       setTimeout(() => {
         setGoogleLoading(false);
         setIsGoogleModalOpen(false);
@@ -270,12 +319,46 @@ const Login = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           style={{ width: '100%', maxWidth: '450px', padding: '40px' }}
         >
-          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-            <h2 style={{ fontSize: '1.8rem', color: 'var(--text-main)', marginBottom: '8px' }}>Sign In</h2>
-            <p style={{ color: 'var(--text-muted)' }}>Enter your details below to continue.</p>
+          <div style={{ textAlign: 'center', marginBottom: '24px' }}>
+            <h2 style={{ fontSize: '1.8rem', color: 'var(--text-main)', marginBottom: '8px' }}>
+              {isSignUp ? 'Create Account' : 'Sign In'}
+            </h2>
+            <p style={{ color: 'var(--text-muted)' }}>
+              {isSignUp ? 'Register for a new corporate account.' : 'Enter your details below to continue.'}
+            </p>
           </div>
 
-          <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <form onSubmit={isSignUp ? handleSignUp : handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            {isSignUp && (
+              <div style={{ display: 'flex', gap: '16px' }}>
+                <div style={{ flex: 1 }}>
+                  <label style={{ display: 'block', marginBottom: '6px', fontSize: '0.9rem', fontWeight: 500, color: 'var(--text-main)' }}>First Name</label>
+                  <div style={{ position: 'relative' }}>
+                    <User size={18} style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+                    <input 
+                      type="text" 
+                      required
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
+                      placeholder="John" 
+                      style={{ width: '100%', padding: '10px 16px 10px 44px', borderRadius: '12px', border: '1px solid var(--border-color)', outline: 'none', background: 'var(--bg-main)', fontSize: '0.9rem', color: 'var(--text-main)' }}
+                    />
+                  </div>
+                </div>
+                <div style={{ flex: 1 }}>
+                  <label style={{ display: 'block', marginBottom: '6px', fontSize: '0.9rem', fontWeight: 500, color: 'var(--text-main)' }}>Last Name</label>
+                  <input 
+                    type="text" 
+                    required
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    placeholder="Doe" 
+                    style={{ width: '100%', padding: '10px 16px', borderRadius: '12px', border: '1px solid var(--border-color)', outline: 'none', background: 'var(--bg-main)', fontSize: '0.9rem', color: 'var(--text-main)' }}
+                  />
+                </div>
+              </div>
+            )}
+
             <div>
               <label style={{ display: 'block', marginBottom: '8px', fontWeight: 500, color: 'var(--text-main)' }}>Email address</label>
               <div style={{ position: 'relative' }}>
@@ -286,7 +369,7 @@ const Login = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email" 
-                  style={{ width: '100%', padding: '12px 16px 12px 48px', borderRadius: '12px', border: '1px solid var(--border-color)', outline: 'none', background: 'var(--bg-main)' }}
+                  style={{ width: '100%', padding: '12px 16px 12px 48px', borderRadius: '12px', border: '1px solid var(--border-color)', outline: 'none', background: 'var(--bg-main)', color: 'var(--text-main)' }}
                 />
               </div>
             </div>
@@ -301,18 +384,53 @@ const Login = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter your password" 
-                  style={{ width: '100%', padding: '12px 16px 12px 48px', borderRadius: '12px', border: '1px solid var(--border-color)', outline: 'none', background: 'var(--bg-main)' }}
+                  style={{ width: '100%', padding: '12px 16px 12px 48px', borderRadius: '12px', border: '1px solid var(--border-color)', outline: 'none', background: 'var(--bg-main)', color: 'var(--text-main)' }}
                 />
               </div>
             </div>
 
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.9rem' }}>
-              <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
-                <input type="checkbox" style={{ accentColor: 'var(--primary)', width: '16px', height: '16px' }} />
-                <span style={{ color: 'var(--text-muted)' }}>Remember me</span>
-              </label>
-              <a href="#" style={{ color: 'var(--primary)', fontWeight: 500 }}>Forgot Password?</a>
-            </div>
+            {isSignUp && (
+              <>
+                <div>
+                  <label style={{ display: 'block', marginBottom: '6px', fontSize: '0.9rem', fontWeight: 500, color: 'var(--text-main)' }}>Role</label>
+                  <div style={{ position: 'relative' }}>
+                    <Briefcase size={18} style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+                    <select
+                      value={role}
+                      onChange={(e) => setRole(e.target.value)}
+                      style={{ width: '100%', padding: '10px 16px 10px 44px', borderRadius: '12px', border: '1px solid var(--border-color)', outline: 'none', background: 'var(--bg-main)', fontSize: '0.9rem', color: 'var(--text-main)' }}
+                    >
+                      <option value="user">Regular User</option>
+                      <option value="it_support">IT Support</option>
+                      <option value="admin">Admin</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label style={{ display: 'block', marginBottom: '6px', fontSize: '0.9rem', fontWeight: 500, color: 'var(--text-main)' }}>Department</label>
+                  <select
+                    value={departmentId}
+                    onChange={(e) => setDepartmentId(e.target.value)}
+                    style={{ width: '100%', padding: '10px 16px', borderRadius: '12px', border: '1px solid var(--border-color)', outline: 'none', background: 'var(--bg-main)', fontSize: '0.9rem', color: 'var(--text-main)' }}
+                  >
+                    {departments.map(dept => (
+                      <option key={dept.id} value={dept.id}>{dept.name} ({dept.code})</option>
+                    ))}
+                  </select>
+                </div>
+              </>
+            )}
+
+            {!isSignUp && (
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.9rem' }}>
+                <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
+                  <input type="checkbox" style={{ accentColor: 'var(--primary)', width: '16px', height: '16px' }} />
+                  <span style={{ color: 'var(--text-muted)' }}>Remember me</span>
+                </label>
+                <a href="#" style={{ color: 'var(--primary)', fontWeight: 500 }}>Forgot Password?</a>
+              </div>
+            )}
 
             <motion.button 
               whileHover={{ scale: 1.02 }}
@@ -321,9 +439,18 @@ const Login = () => {
               type="submit"
               style={{ marginTop: '10px' }}
             >
-              Sign In
+              {isSignUp ? 'Sign Up' : 'Sign In'}
             </motion.button>
           </form>
+
+          <div style={{ marginTop: '20px', textAlign: 'center' }}>
+            <button
+              onClick={() => setIsSignUp(!isSignUp)}
+              style={{ background: 'none', border: 'none', color: 'var(--primary)', fontWeight: 600, cursor: 'pointer', fontSize: '0.9rem', outline: 'none' }}
+            >
+              {isSignUp ? 'Already have an account? Sign In' : "Don't have an account? Sign Up"}
+            </button>
+          </div>
 
           <div style={{ marginTop: '32px', textAlign: 'center' }}>
             <p style={{ color: 'var(--text-muted)', marginBottom: '16px', position: 'relative' }}>
