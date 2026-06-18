@@ -825,14 +825,17 @@ const handleMockRequest = async (url, method, data) => {
   return { status, data: responseData };
 };
 
-// Global Fetch Interceptor for Login Page
+// Global Fetch Interceptor — catches ALL /api/ requests so the app works without a backend
 const originalFetch = window.fetch;
 window.fetch = async function (input, init) {
   let url = typeof input === 'string' ? input : input.url;
   
-  if (url.includes('/api/auth') || url.includes('/api/departments')) {
+  if (url.includes('/api/')) {
     const method = (init && init.method) || 'GET';
-    const body = init && init.body ? JSON.parse(init.body) : null;
+    let body = null;
+    try {
+      body = init && init.body ? JSON.parse(init.body) : null;
+    } catch { body = null; }
     
     const response = await handleMockRequest(url, method, body);
     return {

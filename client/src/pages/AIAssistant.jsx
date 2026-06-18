@@ -19,7 +19,7 @@ const AIAssistant = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:3000/api/ai/query', {
+      const response = await fetch('/api/ai/query', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
