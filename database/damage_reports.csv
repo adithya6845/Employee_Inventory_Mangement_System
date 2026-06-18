@@ -1,0 +1,11 @@
+id,asset_id,reported_by_id,severity,description,status,reported_at
+1,133,25,Low,Minor scratch,Open,2026-05-13
+2,58,49,Low,Minor scratch,Open,2026-05-07
+3,21,30,Low,Minor scratch,Open,2026-05-06
+4,48,8,Low,Minor scratch,Open,2026-05-13
+5,13,1,Low,Minor scratch,Open,2026-05-15
+6,28,26,Low,Minor scratch,Open,2026-05-15
+7,81,13,Low,Minor scratch,Open,2026-05-12
+8,61,10,Low,Minor scratch,Open,2026-05-12
+9,8,3,Low,Minor scratch,Open,2026-05-11
+10,88,8,Low,Minor scratch,Open,2026-05-12

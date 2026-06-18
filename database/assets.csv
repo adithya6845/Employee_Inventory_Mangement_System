@@ -1,0 +1,151 @@
+id,asset_code,name,category,department,model,serial_number,purchase_date,purchase_cost,location
+1,AST-1001,Dell XPS,Laptop,IT Support,v2.0,SN1001,2025-03-12,600,Delhi
+2,AST-1002,Logitech Mouse,Accessory,HR,v2.0,SN1002,2025-12-30,1946,Hyderabad
+3,AST-1003,HP Monitor,Monitor,Operations,v2.0,SN1003,2025-12-23,1219,Pune
+4,AST-1004,iPhone 14,Phone,Finance,v2.0,SN1004,2025-09-29,1435,Pune
+5,AST-1005,Logitech Mouse,Accessory,HR,v2.0,SN1005,2025-09-24,1713,Kolkata
+6,AST-1006,iPhone 14,Phone,Sales,v2.0,SN1006,2025-07-25,1673,Pune
+7,AST-1007,Logitech Mouse,Accessory,IT Support,v2.0,SN1007,2025-12-04,581,Ahmedabad
+8,AST-1008,Logitech Mouse,Accessory,Engineering,v2.0,SN1008,2026-01-14,1856,Pune
+9,AST-1009,Logitech Mouse,Accessory,Operations,v2.0,SN1009,2025-06-22,1186,Ahmedabad
+10,AST-1010,Dell XPS,Laptop,Engineering,v2.0,SN1010,2025-09-01,1813,Delhi
+11,AST-1011,HP Monitor,Monitor,Finance,v2.0,SN1011,2025-10-24,677,Jaipur
+12,AST-1012,HP Monitor,Monitor,Sales,v2.0,SN1012,2025-09-11,797,Ahmedabad
+13,AST-1013,iPhone 14,Phone,Operations,v2.0,SN1013,2025-11-05,1946,Jaipur
+14,AST-1014,Dell XPS,Laptop,Finance,v2.0,SN1014,2025-04-25,1933,Lucknow
+15,AST-1015,iPhone 14,Phone,Marketing,v2.0,SN1015,2025-03-21,1399,Bangalore
+16,AST-1016,HP Monitor,Monitor,Operations,v2.0,SN1016,2025-01-24,1781,Bangalore
+17,AST-1017,HP Monitor,Monitor,HR,v2.0,SN1017,2025-03-25,555,Mumbai
+18,AST-1018,iPhone 14,Phone,Finance,v2.0,SN1018,2025-04-28,1764,Ahmedabad
+19,AST-1019,HP Monitor,Monitor,Engineering,v2.0,SN1019,2025-12-12,1206,Delhi
+20,AST-1020,Logitech Mouse,Accessory,Sales,v2.0,SN1020,2025-11-10,521,Hyderabad
+21,AST-1021,HP Monitor,Monitor,Engineering,v2.0,SN1021,2025-11-04,1093,Chennai
+22,AST-1022,Logitech Mouse,Accessory,Marketing,v2.0,SN1022,2025-10-31,1393,Chennai
+23,AST-1023,HP Monitor,Monitor,HR,v2.0,SN1023,2025-05-12,1479,Kolkata
+24,AST-1024,Logitech Mouse,Accessory,Engineering,v2.0,SN1024,2025-09-21,1719,Pune
+25,AST-1025,Logitech Mouse,Accessory,IT Support,v2.0,SN1025,2025-12-09,770,Jaipur
+26,AST-1026,HP Monitor,Monitor,Operations,v2.0,SN1026,2025-01-24,552,Jaipur
+27,AST-1027,HP Monitor,Monitor,HR,v2.0,SN1027,2025-05-05,762,Jaipur
+28,AST-1028,iPhone 14,Phone,Marketing,v2.0,SN1028,2025-03-18,618,Lucknow
+29,AST-1029,Logitech Mouse,Accessory,IT Support,v2.0,SN1029,2025-06-29,1501,Pune
+30,AST-1030,Dell XPS,Laptop,IT Support,v2.0,SN1030,2026-01-19,1789,Chennai
+31,AST-1031,Logitech Mouse,Accessory,Sales,v2.0,SN1031,2025-07-02,801,Hyderabad
+32,AST-1032,HP Monitor,Monitor,Operations,v2.0,SN1032,2025-11-25,565,Mumbai
+33,AST-1033,Dell XPS,Laptop,Operations,v2.0,SN1033,2025-12-10,912,Ahmedabad
+34,AST-1034,HP Monitor,Monitor,Marketing,v2.0,SN1034,2025-12-19,1579,Bangalore
+35,AST-1035,Dell XPS,Laptop,IT Support,v2.0,SN1035,2025-07-24,1240,Bangalore
+36,AST-1036,iPhone 14,Phone,Marketing,v2.0,SN1036,2025-03-27,1995,Jaipur
+37,AST-1037,Logitech Mouse,Accessory,HR,v2.0,SN1037,2025-03-10,1392,Jaipur
+38,AST-1038,Logitech Mouse,Accessory,Marketing,v2.0,SN1038,2026-01-19,1861,Bangalore
+39,AST-1039,iPhone 14,Phone,Engineering,v2.0,SN1039,2025-02-21,749,Jaipur
+40,AST-1040,Dell XPS,Laptop,Operations,v2.0,SN1040,2025-03-18,1283,Lucknow
+41,AST-1041,HP Monitor,Monitor,Operations,v2.0,SN1041,2025-02-05,1752,Jaipur
+42,AST-1042,iPhone 14,Phone,Finance,v2.0,SN1042,2025-12-29,1135,Bangalore
+43,AST-1043,Dell XPS,Laptop,HR,v2.0,SN1043,2025-01-28,538,Hyderabad
+44,AST-1044,Logitech Mouse,Accessory,Operations,v2.0,SN1044,2025-07-18,1160,Chennai
+45,AST-1045,Logitech Mouse,Accessory,Finance,v2.0,SN1045,2026-01-02,1040,Chennai
+46,AST-1046,Dell XPS,Laptop,Operations,v2.0,SN1046,2025-07-31,676,Mumbai
+47,AST-1047,Dell XPS,Laptop,Engineering,v2.0,SN1047,2025-06-17,1372,Bangalore
+48,AST-1048,Logitech Mouse,Accessory,Marketing,v2.0,SN1048,2025-04-19,885,Mumbai
+49,AST-1049,iPhone 14,Phone,HR,v2.0,SN1049,2026-01-25,540,Hyderabad
+50,AST-1050,Logitech Mouse,Accessory,HR,v2.0,SN1050,2025-04-07,744,Mumbai
+51,AST-1051,Dell XPS,Laptop,Marketing,v2.0,SN1051,2025-06-22,808,Kolkata
+52,AST-1052,Dell XPS,Laptop,Finance,v2.0,SN1052,2025-07-22,1985,Mumbai
+53,AST-1053,Dell XPS,Laptop,IT Support,v2.0,SN1053,2025-01-28,896,Bangalore
+54,AST-1054,Dell XPS,Laptop,Operations,v2.0,SN1054,2025-07-11,1800,Bangalore
+55,AST-1055,iPhone 14,Phone,IT Support,v2.0,SN1055,2025-09-03,1816,Jaipur
+56,AST-1056,Logitech Mouse,Accessory,HR,v2.0,SN1056,2025-02-23,1180,Kolkata
+57,AST-1057,Logitech Mouse,Accessory,Sales,v2.0,SN1057,2025-05-17,1250,Bangalore
+58,AST-1058,Dell XPS,Laptop,HR,v2.0,SN1058,2025-03-17,1892,Kolkata
+59,AST-1059,HP Monitor,Monitor,HR,v2.0,SN1059,2025-02-18,1409,Kolkata
+60,AST-1060,iPhone 14,Phone,Engineering,v2.0,SN1060,2025-11-01,1505,Ahmedabad
+61,AST-1061,HP Monitor,Monitor,Engineering,v2.0,SN1061,2025-07-24,1406,Hyderabad
+62,AST-1062,HP Monitor,Monitor,Finance,v2.0,SN1062,2025-04-29,1472,Mumbai
+63,AST-1063,Dell XPS,Laptop,Engineering,v2.0,SN1063,2025-06-10,1758,Kolkata
+64,AST-1064,iPhone 14,Phone,Operations,v2.0,SN1064,2026-02-05,1095,Ahmedabad
+65,AST-1065,iPhone 14,Phone,Operations,v2.0,SN1065,2025-05-02,1464,Mumbai
+66,AST-1066,HP Monitor,Monitor,IT Support,v2.0,SN1066,2025-11-24,1292,Jaipur
+67,AST-1067,HP Monitor,Monitor,Sales,v2.0,SN1067,2025-09-20,1475,Jaipur
+68,AST-1068,iPhone 14,Phone,Marketing,v2.0,SN1068,2026-01-01,1780,Jaipur
+69,AST-1069,Dell XPS,Laptop,Finance,v2.0,SN1069,2026-01-20,801,Hyderabad
+70,AST-1070,Logitech Mouse,Accessory,Sales,v2.0,SN1070,2025-12-01,1165,Hyderabad
+71,AST-1071,HP Monitor,Monitor,HR,v2.0,SN1071,2025-03-21,1452,Bangalore
+72,AST-1072,HP Monitor,Monitor,IT Support,v2.0,SN1072,2025-06-03,836,Delhi
+73,AST-1073,Logitech Mouse,Accessory,Sales,v2.0,SN1073,2025-04-10,1697,Jaipur
+74,AST-1074,HP Monitor,Monitor,HR,v2.0,SN1074,2025-01-13,1890,Chennai
+75,AST-1075,Logitech Mouse,Accessory,HR,v2.0,SN1075,2025-06-15,534,Lucknow
+76,AST-1076,iPhone 14,Phone,HR,v2.0,SN1076,2025-01-21,921,Jaipur
+77,AST-1077,Logitech Mouse,Accessory,Operations,v2.0,SN1077,2025-08-05,1075,Lucknow
+78,AST-1078,Dell XPS,Laptop,IT Support,v2.0,SN1078,2025-10-01,954,Lucknow
+79,AST-1079,Logitech Mouse,Accessory,Sales,v2.0,SN1079,2025-09-01,1845,Ahmedabad
+80,AST-1080,HP Monitor,Monitor,Engineering,v2.0,SN1080,2025-07-28,1131,Kolkata
+81,AST-1081,Dell XPS,Laptop,Operations,v2.0,SN1081,2025-08-09,1628,Hyderabad
+82,AST-1082,Dell XPS,Laptop,IT Support,v2.0,SN1082,2025-12-02,1460,Jaipur
+83,AST-1083,Dell XPS,Laptop,Engineering,v2.0,SN1083,2026-01-27,1910,Mumbai
+84,AST-1084,iPhone 14,Phone,Finance,v2.0,SN1084,2025-05-26,1242,Delhi
+85,AST-1085,HP Monitor,Monitor,Operations,v2.0,SN1085,2025-02-02,1405,Kolkata
+86,AST-1086,HP Monitor,Monitor,Engineering,v2.0,SN1086,2025-01-14,1119,Mumbai
+87,AST-1087,Dell XPS,Laptop,Engineering,v2.0,SN1087,2025-01-16,645,Delhi
+88,AST-1088,iPhone 14,Phone,Marketing,v2.0,SN1088,2025-06-17,929,Ahmedabad
+89,AST-1089,iPhone 14,Phone,Operations,v2.0,SN1089,2025-09-13,1646,Pune
+90,AST-1090,iPhone 14,Phone,IT Support,v2.0,SN1090,2025-10-27,1897,Jaipur
+91,AST-1091,HP Monitor,Monitor,Operations,v2.0,SN1091,2025-03-22,965,Chennai
+92,AST-1092,Dell XPS,Laptop,HR,v2.0,SN1092,2025-03-12,928,Mumbai
+93,AST-1093,HP Monitor,Monitor,Engineering,v2.0,SN1093,2025-02-01,1350,Pune
+94,AST-1094,Dell XPS,Laptop,IT Support,v2.0,SN1094,2025-03-28,954,Hyderabad
+95,AST-1095,HP Monitor,Monitor,Finance,v2.0,SN1095,2025-03-11,1628,Ahmedabad
+96,AST-1096,HP Monitor,Monitor,HR,v2.0,SN1096,2026-02-05,1423,Pune
+97,AST-1097,iPhone 14,Phone,HR,v2.0,SN1097,2025-12-25,548,Kolkata
+98,AST-1098,Logitech Mouse,Accessory,IT Support,v2.0,SN1098,2025-03-23,1101,Kolkata
+99,AST-1099,HP Monitor,Monitor,IT Support,v2.0,SN1099,2025-09-09,901,Jaipur
+100,AST-1100,Dell XPS,Laptop,Engineering,v2.0,SN1100,2025-02-17,1094,Lucknow
+101,AST-1101,Dell XPS,Laptop,IT Support,v2.0,SN1101,2025-08-25,1228,Ahmedabad
+102,AST-1102,HP Monitor,Monitor,HR,v2.0,SN1102,2025-03-02,845,Mumbai
+103,AST-1103,HP Monitor,Monitor,Finance,v2.0,SN1103,2025-03-22,1132,Chennai
+104,AST-1104,Dell XPS,Laptop,Operations,v2.0,SN1104,2025-08-20,1433,Hyderabad
+105,AST-1105,HP Monitor,Monitor,IT Support,v2.0,SN1105,2025-09-15,1865,Pune
+106,AST-1106,Logitech Mouse,Accessory,Sales,v2.0,SN1106,2025-01-08,500,Bangalore
+107,AST-1107,iPhone 14,Phone,Operations,v2.0,SN1107,2025-10-24,787,Hyderabad
+108,AST-1108,Dell XPS,Laptop,Engineering,v2.0,SN1108,2025-09-01,1304,Bangalore
+109,AST-1109,iPhone 14,Phone,Marketing,v2.0,SN1109,2025-03-20,1699,Kolkata
+110,AST-1110,iPhone 14,Phone,Finance,v2.0,SN1110,2025-10-30,697,Kolkata
+111,AST-1111,Logitech Mouse,Accessory,Operations,v2.0,SN1111,2025-04-03,1951,Mumbai
+112,AST-1112,iPhone 14,Phone,Sales,v2.0,SN1112,2025-10-17,509,Ahmedabad
+113,AST-1113,Logitech Mouse,Accessory,IT Support,v2.0,SN1113,2025-07-19,1179,Ahmedabad
+114,AST-1114,Logitech Mouse,Accessory,HR,v2.0,SN1114,2026-01-02,1171,Kolkata
+115,AST-1115,Logitech Mouse,Accessory,Engineering,v2.0,SN1115,2026-01-29,1680,Jaipur
+116,AST-1116,HP Monitor,Monitor,HR,v2.0,SN1116,2025-02-09,1701,Mumbai
+117,AST-1117,Dell XPS,Laptop,Marketing,v2.0,SN1117,2025-11-16,1515,Mumbai
+118,AST-1118,HP Monitor,Monitor,Engineering,v2.0,SN1118,2025-02-01,734,Pune
+119,AST-1119,Dell XPS,Laptop,IT Support,v2.0,SN1119,2025-06-03,1400,Hyderabad
+120,AST-1120,Logitech Mouse,Accessory,Marketing,v2.0,SN1120,2025-10-13,637,Bangalore
+121,AST-1121,Logitech Mouse,Accessory,Sales,v2.0,SN1121,2025-03-28,1304,Mumbai
+122,AST-1122,Logitech Mouse,Accessory,Operations,v2.0,SN1122,2025-04-21,1990,Chennai
+123,AST-1123,HP Monitor,Monitor,Engineering,v2.0,SN1123,2025-06-12,876,Pune
+124,AST-1124,HP Monitor,Monitor,HR,v2.0,SN1124,2025-02-03,1484,Chennai
+125,AST-1125,iPhone 14,Phone,HR,v2.0,SN1125,2025-01-02,1551,Jaipur
+126,AST-1126,HP Monitor,Monitor,Finance,v2.0,SN1126,2025-02-21,1681,Delhi
+127,AST-1127,Logitech Mouse,Accessory,Marketing,v2.0,SN1127,2025-06-08,515,Lucknow
+128,AST-1128,Dell XPS,Laptop,Operations,v2.0,SN1128,2025-04-13,1381,Kolkata
+129,AST-1129,Logitech Mouse,Accessory,Marketing,v2.0,SN1129,2026-01-31,822,Lucknow
+130,AST-1130,HP Monitor,Monitor,HR,v2.0,SN1130,2025-03-08,1509,Bangalore
+131,AST-1131,HP Monitor,Monitor,Engineering,v2.0,SN1131,2025-01-02,621,Ahmedabad
+132,AST-1132,Logitech Mouse,Accessory,Engineering,v2.0,SN1132,2025-01-04,1359,Mumbai
+133,AST-1133,Dell XPS,Laptop,Marketing,v2.0,SN1133,2025-02-09,679,Jaipur
+134,AST-1134,iPhone 14,Phone,HR,v2.0,SN1134,2025-09-27,1976,Lucknow
+135,AST-1135,Logitech Mouse,Accessory,Engineering,v2.0,SN1135,2025-07-12,814,Jaipur
+136,AST-1136,iPhone 14,Phone,IT Support,v2.0,SN1136,2025-12-05,1340,Bangalore
+137,AST-1137,Logitech Mouse,Accessory,Operations,v2.0,SN1137,2025-04-24,1479,Jaipur
+138,AST-1138,Dell XPS,Laptop,Operations,v2.0,SN1138,2025-10-07,1477,Pune
+139,AST-1139,Logitech Mouse,Accessory,IT Support,v2.0,SN1139,2025-10-03,1742,Hyderabad
+140,AST-1140,HP Monitor,Monitor,Finance,v2.0,SN1140,2025-05-14,1990,Mumbai
+141,AST-1141,Logitech Mouse,Accessory,IT Support,v2.0,SN1141,2025-05-21,798,Ahmedabad
+142,AST-1142,Dell XPS,Laptop,HR,v2.0,SN1142,2025-08-28,1634,Hyderabad
+143,AST-1143,HP Monitor,Monitor,Operations,v2.0,SN1143,2025-02-16,1034,Hyderabad
+144,AST-1144,HP Monitor,Monitor,Finance,v2.0,SN1144,2025-12-23,1340,Hyderabad
+145,AST-1145,Logitech Mouse,Accessory,Engineering,v2.0,SN1145,2025-01-31,1256,Chennai
+146,AST-1146,HP Monitor,Monitor,Marketing,v2.0,SN1146,2025-09-23,1726,Hyderabad
+147,AST-1147,iPhone 14,Phone,Marketing,v2.0,SN1147,2025-04-20,1242,Lucknow
+148,AST-1148,HP Monitor,Monitor,HR,v2.0,SN1148,2025-01-10,679,Pune
+149,AST-1149,Dell XPS,Laptop,HR,v2.0,SN1149,2025-10-17,738,Kolkata
+150,AST-1150,iPhone 14,Phone,Finance,v2.0,SN1150,2026-01-08,1212,Kolkata
